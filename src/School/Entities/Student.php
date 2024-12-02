@@ -20,4 +20,7 @@
             $this->updateTimestamps();
         }
 
+        public function getEnrollments(){
+            return $this->enrollments;
+        }
     }

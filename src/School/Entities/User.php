@@ -27,33 +27,19 @@
             return $this;
         }
 
-        function getEmail(){
+        public function getEmail(){
             return $this->email;
         }
 
-        
-
-        /**
-         * Get the value of username
-         */ 
-        public function getUsername()
-        {
-                return $this->username;
+        public function getUsername(){
+            return $this->username;
         }
 
-        /**
-         * Get the value of password
-         */ 
-        public function getPassword()
-        {
-                return $this->password;
+        public function getPassword(){
+            return $this->password;
         }
 
-        /**
-         * Get the value of dni
-         */ 
-        public function getDni()
-        {
-                return $this->dni;
+        public function getDni(){
+            return $this->dni;
         }
     }

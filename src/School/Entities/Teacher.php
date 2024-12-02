@@ -20,4 +20,8 @@
         public function addToDepartment(Department $dept){
             $this->department=$dept;
         }
+
+        public function getDepartment(){
+            return $this->department;
+        }
     }

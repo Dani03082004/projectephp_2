@@ -14,10 +14,12 @@ use App\School\Repositories\IUserRepository;
         }
 
         function save(User $user){
-            $stmt=$this->db->prepare("INSERT INTO users(username,email) VALUES(:username,:email)");
+            $stmt=$this->db->prepare("INSERT INTO users(username,email,dni,password) VALUES(:username,:email,:dni,:password)");
             $stmt->execute([
                 'username'=>$user->getUsername(),
-                'email'=>$user->getEmail()
+                'email'=>$user->getEmail(),
+                'dni'=>$user->getDni(),
+                'password'=>$user->getPassword()
             ]);
 
         }

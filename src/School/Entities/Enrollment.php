@@ -11,13 +11,11 @@
         private \DateTime $enrollmentDate;
         
         
-        public function getStudent()
-        {
+        public function getStudent(){
                 return $this->student;
         }
 
-        public function getId()
-        {
+        public function getId(){
                 return $this->id;
         }
     }

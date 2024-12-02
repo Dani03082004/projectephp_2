@@ -1,3 +1,4 @@
+<?php include 'partials/header.view.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +8,7 @@
 </head>
 <body>
     <h1>School <?=$name;?></h1>
+    <a href="Controllers/TeacherController.php">Añadir un nuevo Profesor</a>
 </body>
 </html>
+<?php include 'partials/footer.view.php'; ?>

@@ -16,7 +16,7 @@
                     'dbpassword'=>$_ENV['DB_PASSWORD']    
                 ];
                 try{
-                    echo "Se ha conectado correctamente";
+                   //echo "Se ha conectado correctamente";
                     self::$db=new \PDO($db_info['dsn'],
                     $db_info['dbuser'],$db_info['dbpassword']);
                 }catch(\PDOException $e){
