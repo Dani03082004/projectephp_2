@@ -3,8 +3,6 @@
     namespace App\School\Entities;
 
      class User{
-     
-
         private string $email;
         private string $username;
         private string $password;
@@ -12,14 +10,11 @@
         private ?\DateTime $createdAt=null;
         private ?\DateTime $updatedAt=null;
 
-
         function __construct($username,$email,$password,$dni){
             $this->email=$email;
             $this->username=$username;
             $this->password=$password;
             $this->dni=$dni;
-
-
         }
 
         function setEmail(string $email){
@@ -41,5 +36,20 @@
 
         public function getDni(){
             return $this->dni;
+        }
+
+        public function setUsername($username){
+            $this->username = $username;
+            return $this;
+        }
+
+        public function setPassword($password){
+            $this->password = $password;
+            return $this;
+        }
+
+        public function setDni($dni){
+            $this->dni = $dni;
+            return $this;
         }
     }
