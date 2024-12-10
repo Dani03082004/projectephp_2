@@ -5,6 +5,7 @@ namespace App\School\Repositories;
 use App\School\Entities\Enrollment;
 
 interface IEnrollmentRepository{
-    function save(Enrollment $enrollment);
-    function findByDni(string $dni);
+    public function save(Enrollment $enrollment);
+    public function findById($id);
+
 }
