@@ -11,7 +11,6 @@ class Student extends User {
 
     protected User $user_id;  
     protected int $id;
-    protected string $dni;
     protected DateTime $enrollment_year;
     protected $enrollments = [];  // Para relacionar los estudiantes con sus inscripciones
 
@@ -19,7 +18,7 @@ class Student extends User {
         echo parent::MYSCHOOL;
     }
 
-    function __construct(User $user_id, string $dni, DateTime $enrollment_year) {
+    function __construct(User $user_id, string $dni, DateTime $enrollment_year,string $email, string $name, string $password) {
         parent::__construct($username,$email,$password,$dni);
         $this->user_id = $user_id;
         $this->dni = $dni;
@@ -45,4 +44,12 @@ class Student extends User {
         return $this;
     }
 
+    public function getEnrollment_year(){
+        return $this->enrollment_year;
+    }
+
+    public function setEnrollment_year($enrollment_year){
+        $this->enrollment_year = $enrollment_year;
+        return $this;
+    }
 }
