@@ -19,10 +19,10 @@
         }
 
         function save(Course $course){
-            $stmt=$this->db->prepare("INSERT INTO courses(degree_id,name) VALUES(:degree_id,:name)");
+            $stmt=$this->db->prepare("INSERT INTO courses(name,degree_id) VALUES(:name,:degree_id)");
             $stmt->execute([
-                ':degree_id'=>$course->getDegree_id(),
                 ':name'=>$course->getName(),
+                ':degree_id'=>$course->getDegree_id()
             ]);
 
             // Obtener el ID con el LastInsertId

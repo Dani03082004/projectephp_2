@@ -19,12 +19,12 @@
         }
 
         function save(Exams $exams){
-            $stmt=$this->db->prepare("INSERT INTO exams(degree_id,subject_id,description,exam_date) VALUES(:degree_id,:subject_id,:description,:exam_date)");
+            $stmt=$this->db->prepare("INSERT INTO exams(subject_id,exam_date,description,degree_id) VALUES(:subject_id,:exam_date,:description,:degree_id)");
             $stmt->execute([
-                ':degree_id'=>$exams->getDegree_id(),
                 ':subject_id'=>$exams->getSubjectId(),
+                ':exam_date'=>$exams->getExamDate(),
                 ':description'=>$exams->getDescription(),
-                ':exam_date'=>$exams->getExamDate()
+                ':degree_id'=>$exams->getDegree_id()
             ]);
 
             // Obtener el ID con el LastInsertId

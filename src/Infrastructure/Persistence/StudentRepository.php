@@ -19,14 +19,10 @@
         }
 
         function save(Student $student){
-            $stmt=$this->db->prepare("INSERT INTO students(user_id,dni,enrollment_year,username,email,password) VALUES(:user_id,:dni,:enrollment_year,:username,:email,:password)");
+            $stmt=$this->db->prepare("INSERT INTO students(user_id,enrollment_year) VALUES(:user_id,:enrollment_year)");
             $stmt->execute([
                 ':user_id'=>$student->getUser_id(),
-                ':dni'=>$student->getDni(),
                 ':enrollment_year'=>$student->getEnrollment_year(),
-                ':username'=>$student->getUsername(),
-                ':email'=>$student->getEmail(),
-                ':password'=>$student->getPassword()
             ]);
 
             // Obtener el ID con el LastInsertId

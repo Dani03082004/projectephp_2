@@ -19,12 +19,14 @@
         }
 
         function save(User $user){
-            $stmt=$this->db->prepare("INSERT INTO users(username,email,dni,password) VALUES(:username,:email,:dni,:password)");
+            $stmt=$this->db->prepare("INSERT INTO users(uuid,first_name,last_name,email,password,dni) VALUES(:uuid,:first_name,:last_name,:email,:password,:dni)");
             $stmt->execute([
-                ':username'=>$user->getUsername(),
+                ':uuid'=>$user->getUuid(),
+                ':first_name'=>$user->getFirstName(),
+                ':last_name'=>$user->getLastName(),
                 ':email'=>$user->getEmail(),
-                ':dni'=>$user->getDni(),
-                ':password'=>$user->getPassword()
+                ':password'=>$user->getPassword(),
+                ':dni'=>$user->getDni()
             ]);
 
             // Obtener el ID con el LastInsertId

@@ -6,17 +6,17 @@ use DateTime;
 
 class Exams {
     private int $id;
-    private Degrees $degree_id;
     private Subject $subject_id;
-    private string $description;
     private ?DateTime $exam_date = null;
+    private string $description;
+    private Degrees $degree_id;
 
-    function __construct(int $id, Degrees $degree_id, Subject $subject_id, string $description, ?DateTime $exam_date = null) {
+    function __construct(int $id, Subject $subject_id, ?DateTime $exam_date = null, string $description, Degrees $degree_id) {
         $this->id = $id;
-        $this->degree_id = $degree_id;
         $this->subject_id = $subject_id;
-        $this->description = $description;
         $this->exam_date = $exam_date;
+        $this->description = $description;
+        $this->degree_id = $degree_id;
     }
 
     public function getId() {

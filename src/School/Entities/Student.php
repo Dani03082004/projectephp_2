@@ -9,8 +9,8 @@ use DateTime;
 class Student extends User {
     use Timestampable;
 
-    protected User $user_id;  
     protected int $id;
+    protected User $user_id;  
     protected DateTime $enrollment_year;
     protected $enrollments = [];  // Para relacionar los estudiantes con sus inscripciones
 
@@ -18,10 +18,10 @@ class Student extends User {
         echo parent::MYSCHOOL;
     }
 
-    function __construct(User $user_id, string $dni, DateTime $enrollment_year,string $email, string $name, string $password) {
-        parent::__construct($username,$email,$password,$dni);
+    function __construct(int $id, User $user_id, DateTime $enrollment_year, string $uuid, string $first_name, string $last_name, string $email, string $password,string $dni) {
+        parent::__construct($uuid,$first_name,$last_name,$email,$password,$dni);
+        $this->id=$id;
         $this->user_id = $user_id;
-        $this->dni = $dni;
         $this->enrollment_year = $enrollment_year;
         $this->updateTimestamps();
     }

@@ -18,14 +18,10 @@ class TeacherRepository implements ITeacherRepository{
     }
 
     function save(Teacher $teacher){
-        $stmt=$this->db->prepare("INSERT INTO teachers(user_id,department_id,email,username,dni,password) VALUES(:user_id,:department_id,:email,:username,:dni,:password)");
+        $stmt=$this->db->prepare("INSERT INTO teachers(user_id,department_id) VALUES(:user_id,:department_id)");
         $stmt->execute([
             ':user_id'=>$teacher->getUser_id(),
             ':department_id'=>$teacher->getDepartment_id(),
-            ':email'=>$teacher->getEmail(),
-            ':username'=>$teacher->getUsername(),
-            ':dni'=>$teacher->getDni(),
-            ':password'=>$teacher->getPassword(),
         ]);
         // Obtener el ID con el LastInsertId
         $lastInsertId = $this->db->lastInsertId();

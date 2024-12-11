@@ -20,12 +20,12 @@
         }
 
         function save(Enrollment $enrollment){
-            $stmt=$this->db->prepare("INSERT INTO enrollments(student,course,subject,enrollmentDate) VALUES(:student,:course,:subject,:enrollmentDate)");
+            $stmt=$this->db->prepare("INSERT INTO enrollments(student_id,subject_id,enrollment_date,course_id) VALUES(:student_id,:subject_id,:enrollment_date,:course_id)");
             $stmt->execute([
-                ':student'=>$enrollment->getStudent(),
-                ':course'=>$enrollment->getCourse(),
-                ':subject'=>$enrollment->getSubject(),
-                ':enrollmentDate'=>$enrollment->getEnrollmentDate()
+                ':student_id'=>$enrollment->getStudent_id(),
+                ':subject_id'=>$enrollment->getSubject_id(),
+                ':enrollment_date'=>$enrollment->getEnrollment_Date(),
+                ':course_id'=>$enrollment->getCourse_id()
             ]);
             // Obtener el ID con el LastInsertId
             $lastInsertId = $this->db->lastInsertId();

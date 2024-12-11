@@ -14,8 +14,8 @@
         protected User $user_id;
         protected Department $department_id;
 
-        function __construct(User $user_id, Department $department_id, string $email, string $name, string $dni, string $password){
-            parent::__construct($email,$username,$dni,$password);
+        function __construct(User $user_id, Department $department_id, string $uuid, string $first_name, string $last_name, string $email, string $password,string $dni){
+            parent::__construct($uuid,$first_name,$last_name,$email,$password,$dni);
             $this->user_id = $user_id;
             $this->department_id = $department_id;
             $this->updateTimestamps();

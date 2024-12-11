@@ -34,7 +34,7 @@
             return $stmt->fetchObject(Degrees::class);
         }
         
-        function findById($id):?User{
+        function findById($id):?Degrees{
             $stmt=$this->db->prepare("SELECT * FROM degrees WHERE id=:id");
             $stmt->execute([':id'=>$id]);
             $result = $stmt->fetchObject(Degrees::class);

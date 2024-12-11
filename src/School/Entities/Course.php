@@ -5,14 +5,14 @@
 
     class Course{
         protected $id;
-        protected Degrees $degree_id;
         protected $name;
+        protected Degrees $degree_id;
         protected $subjects=[]; // Para relacionar los asignaturas con su curso
 
-        public function __construct(int $id, Degrees $degree_id, string $name){
+        public function __construct(int $id, string $name, Degrees $degree_id){
             $this->id=$id;
-            $this->degree_id=$degree_id;
             $this->name=$name;
+            $this->degree_id=$degree_id;
         }
 
         function addSubject(Subject $subject){
