@@ -35,7 +35,7 @@
             // Recuperamos el ID
             $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
             $stmt->execute([':id' => $lastInsertId]);
-            return $stmt->fetchObject(Teacher::class);
+            return $stmt->fetchObject(User::class);
         }
         
         function findById($id):?User{

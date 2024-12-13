@@ -5,6 +5,8 @@
     $dotenv->load();
 
     use App\Controllers\HomeController;
+    use App\Controllers\TeacherController;
+    use App\Controllers\StudentController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;
     use App\School\Services\EnrollmentService;
@@ -22,5 +24,6 @@
    
     $router=new Router();
     $router->addRoute('GET','/',[new HomeController(),'index'])
-            ->addRoute('GET','/teachers',[new HomeController(),'teachers']);
+            ->addRoute('GET','/teachers',[new TeacherController(),'viewteacher'])
+            ->addRoute('GET','/students',[new StudentController(),'viewstudent']);
 
