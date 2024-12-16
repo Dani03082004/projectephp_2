@@ -7,6 +7,8 @@
     use App\Controllers\HomeController;
     use App\Controllers\TeacherController;
     use App\Controllers\StudentController;
+    use App\Controllers\DepartmentController;
+    use App\Controllers\CourseController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;
     use App\School\Services\EnrollmentService;
@@ -25,5 +27,12 @@
     $router=new Router();
     $router->addRoute('GET','/',[new HomeController(),'index'])
             ->addRoute('GET','/teachers',[new TeacherController(),'viewteacher'])
-            ->addRoute('GET','/students',[new StudentController(),'viewstudent']);
+            ->addRoute('GET','/students',[new StudentController(),'viewstudent'])
+            ->addRoute('GET','/departments',[new DepartmentController(),'viewdepartment'])
+            ->addRoute('GET','/courses',[new CourseController(),'viewcourse']);
 
+
+            /*->addRoute('POST','/add-student',[new StudentController(),'addstudent'])
+            ->addRoute('POST','/add-department',[new DepartmentController(),'addepartment'])
+            ->addRoute('POST','/add-course',[new CourseController(),'addcourse'])
+            ->addRoute('POST','/add-teacher',[new TeacherController(),'addteacher'])*/

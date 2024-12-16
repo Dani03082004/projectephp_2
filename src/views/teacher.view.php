@@ -50,6 +50,11 @@
                 </div>
 
                 <div>
+                    <label for="user_id">ID User</label>
+                    <input type="text" id="user_id" name="user_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                </div>
+
+                <div>
                     <label for="department_id">Departamento</label>
                     <input type="text" id="department_id" name="department_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                 </div>

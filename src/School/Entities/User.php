@@ -2,7 +2,7 @@
 
 namespace App\School\Entities;
 
-class User{
+abstract class User{
     private string $uuid;
     private string $first_name;
     private string $last_name;

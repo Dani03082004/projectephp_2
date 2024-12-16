@@ -16,7 +16,6 @@
             <p class="mt-4 text-xl text-gray-600">Administra la información de los estudiantes aquí</p>
         </section>
 
-        <!-- Formulario para añadir un nuevo estudiante -->
         <section class="mt-8 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Añadir un nuevo Estudiante</h3>
             <form method="POST" action="/add-student" class="space-y-4">

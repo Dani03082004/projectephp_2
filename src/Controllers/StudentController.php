@@ -6,4 +6,8 @@
         function viewstudent(){
             require VIEWS.'/student.view.php';
         }
+        
+        function addstudent(){
+            
+        }
     }
