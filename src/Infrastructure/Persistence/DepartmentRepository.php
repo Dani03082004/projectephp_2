@@ -14,8 +14,8 @@
 
         function all(){
             $stmt=$this->db->prepare("SELECT * FROM departments");
-            $stmt->execute([]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         function save(Department $department){

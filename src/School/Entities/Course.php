@@ -6,11 +6,10 @@
     class Course{
         protected $id;
         protected $name;
-        protected Degrees $degree_id;
+        protected int $degree_id;
         protected $subjects=[]; // Para relacionar los asignaturas con su curso
 
-        public function __construct(int $id, string $name, Degrees $degree_id){
-            $this->id=$id;
+        public function __construct(string $name, int $degree_id){
             $this->name=$name;
             $this->degree_id=$degree_id;
         }
@@ -37,11 +36,11 @@
             return $this->id;
         }
 
-        public function getDegree_id(): Degrees{
+        public function getDegree_id(){
             return $this->degree_id;
         }
 
-        public function setDegree_id(Degrees $degree_id): self{
+        public function setDegree_id(int $degree_id){
                 $this->degree_id = $degree_id;
                 return $this;
         }

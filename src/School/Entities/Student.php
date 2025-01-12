@@ -10,17 +10,17 @@ class Student extends User {
     use Timestampable;
 
     protected int $id;
-    protected User $user_id;  
+    protected int $user_id;  
     protected DateTime $enrollment_year;
+    protected string $dni;
     protected $enrollments = [];  // Para relacionar los estudiantes con sus inscripciones
 
     public function showSchool() {
         echo parent::MYSCHOOL;
     }
 
-    function __construct(int $id, User $user_id, DateTime $enrollment_year, string $uuid, string $first_name, string $last_name, string $email, string $password,string $dni) {
-        parent::__construct($uuid,$first_name,$last_name,$email,$password,$dni);
-        $this->id=$id;
+    function __construct(int $user_id, DateTime $enrollment_year, string $dni,string $uuid, string $first_name, string $last_name, string $email, string $password,string $user_type) {
+        parent::__construct($uuid,$first_name,$last_name,$email,$password,$user_type);
         $this->user_id = $user_id;
         $this->enrollment_year = $enrollment_year;
         $this->updateTimestamps();
@@ -35,11 +35,11 @@ class Student extends User {
         return $this;
     }
 
-    public function getUser_id(): User{
+    public function getUser_id(){
         return $this->user_id;
     }
 
-    public function setUser_id(User $user_id): self{
+    public function setUser_id(int $user_id){
         $this->user_id = $user_id;
         return $this;
     }
@@ -50,6 +50,24 @@ class Student extends User {
 
     public function setEnrollment_year($enrollment_year){
         $this->enrollment_year = $enrollment_year;
+        return $this;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+        return $this;
+    }
+
+    public function getDni(){
+        return $this->dni;
+    }
+
+    public function setDni($dni){
+        $this->dni = $dni;
         return $this;
     }
 }

@@ -4,9 +4,6 @@
 
     use App\Infrastructure\Routing\Request;
 
-    
-    
-
     class Router{
         private array $routes=[];
 

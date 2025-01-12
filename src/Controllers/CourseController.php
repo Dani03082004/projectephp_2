@@ -3,8 +3,8 @@
     namespace App\Controllers;
 
     class CourseController{
-        function viewcourse(){
-            require VIEWS.'/course.view.php';
+        function index(){
+            echo view('course');
         }
         
         function addcourse(){

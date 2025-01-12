@@ -9,8 +9,7 @@
         protected string $name;
         protected string $duration_years;
 
-        function __construct(int $id, string $name, string $duration_years){
-            $this->id = $id;
+        function __construct(string $name, string $duration_years){
             $this->name = $name;
             $this->duration_years=$duration_years;
         }

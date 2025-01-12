@@ -13,6 +13,7 @@
     use App\Infrastructure\Routing\Router;
     use App\School\Services\EnrollmentService;
     use App\Infrastructure\Persistence\EnrollmentRepository;
+    use App\Infrastructure\Persistence\TeacherRepository;
     
     use App\School\Services\Services;
     
@@ -21,15 +22,20 @@
     $db=DatabaseConnection::getConnection();
     $services=new Services();
     $services->addServices('db',fn()=>$db);
-    $db=$services->getService('db');
+    $services->addServices('teacherRepository', fn() => new TeacherRepository($db));
     $services->addServices('enrollmentRepository',fn()=>new EnrollmentRepository($db));
+
+    // Obtener la carga del servicio de la BD
+    $db=$services->getService('db');
    
+
     $router=new Router();
     $router->addRoute('GET','/',[new HomeController(),'index'])
-            ->addRoute('GET','/teachers',[new TeacherController(),'viewteacher'])
-            ->addRoute('GET','/students',[new StudentController(),'viewstudent'])
-            ->addRoute('GET','/departments',[new DepartmentController(),'viewdepartment'])
-            ->addRoute('GET','/courses',[new CourseController(),'viewcourse']);
+            ->addRoute('GET','/teachers',[new TeacherController($services),'index'])
+            ->addRoute('POST','/add-teacher',[new TeacherController($services),'addteacher'])
+            ->addRoute('GET','/students',[new StudentController(),'index'])
+            ->addRoute('GET','/departments',[new DepartmentController(),'index'])
+            ->addRoute('GET','/courses',[new CourseController(),'index']);
 
 
             /*->addRoute('POST','/add-student',[new StudentController(),'addstudent'])

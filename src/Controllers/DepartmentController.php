@@ -3,8 +3,8 @@
     namespace App\Controllers;
 
     class DepartmentController{
-        function viewdepartment(){
-            require VIEWS.'/department.view.php';
+        function index(){
+            echo view('department');
         }
         
         function addepartment(){

@@ -19,6 +19,7 @@
             return $stmt->fetchAll(\PDO::FETCH_CLASS);
         }
 
+        // Hay que ir metiendo cada Id de cada cosa con el LastInsertId
         function save(Enrollment $enrollment){
             $stmt=$this->db->prepare("INSERT INTO enrollments(student_id,subject_id,enrollment_date,course_id) VALUES(:student_id,:subject_id,:enrollment_date,:course_id)");
             $stmt->execute([

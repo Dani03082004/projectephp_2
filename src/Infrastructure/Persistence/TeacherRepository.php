@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Persistence;
 use App\School\Entities\Teacher;
 use App\School\Repositories\ITeacherRepository;
+use App\School\Services\TeacherService;
 
 class TeacherRepository implements ITeacherRepository{
     private \PDO $db;
@@ -11,25 +12,28 @@ class TeacherRepository implements ITeacherRepository{
         $this->db=$db;
     }
 
-    function all(){
-        $stmt=$this->db->prepare("SELECT * FROM teachers");
+    function allteachers(){
+        $stmt = $this->db->prepare("SELECT teachers.id, users.first_name, users.last_name, users.email, teachers.department_id, departments.name AS department_name
+                                    FROM teachers
+                                    LEFT JOIN users ON teachers.user_id = users.id
+                                    LEFT JOIN departments ON teachers.department_id = departments.id");
         $stmt->execute([]);
-        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+    
+    
+    
 
     function save(Teacher $teacher){
+
+        //Recoger el User ID antes de la sentencia con el LastInsertID
         $stmt=$this->db->prepare("INSERT INTO teachers(user_id,department_id) VALUES(:user_id,:department_id)");
         $stmt->execute([
             ':user_id'=>$teacher->getUser_id(),
             ':department_id'=>$teacher->getDepartment_id(),
         ]);
         // Obtener el ID con el LastInsertId
-        $lastInsertId = $this->db->lastInsertId();
-
-        // Recuperamos el ID
-        $stmt = $this->db->prepare("SELECT * FROM teachers WHERE id = :id");
-        $stmt->execute([':id' => $lastInsertId]);
-        return $stmt->fetchObject(Teacher::class);
+        return $this->db->lastInsertId();
     }
 
     function findById($id):?Teacher{

@@ -26,7 +26,7 @@
 
                 <div>
                     <label for="degree_id">ID Curso</label>
-                    <input type="text" id="degree_id" name="degree_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                    <input type="text" id="degree_id" name="degree_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
                 </div>
 
                 <div>

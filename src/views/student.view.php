@@ -51,7 +51,7 @@
 
                 <div>
                     <label for="user_id" class="block text-gray-700 font-medium">ID de Usuario</label>
-                    <input type="text" id="user_id" name="user_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                    <input type="text" id="user_id" name="user_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
                 </div>
 
                 <div>

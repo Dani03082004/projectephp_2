@@ -6,13 +6,12 @@ use DateTime;
 
 class Exams {
     private int $id;
-    private Subject $subject_id;
+    private int $subject_id;
     private ?DateTime $exam_date = null;
     private string $description;
-    private Degrees $degree_id;
+    private int $degree_id;
 
-    function __construct(int $id, Subject $subject_id, ?DateTime $exam_date = null, string $description, Degrees $degree_id) {
-        $this->id = $id;
+    function __construct(int $subject_id, ?DateTime $exam_date = null, string $description, int $degree_id) {
         $this->subject_id = $subject_id;
         $this->exam_date = $exam_date;
         $this->description = $description;
@@ -28,11 +27,11 @@ class Exams {
         return $this;
     }
 
-    public function getSubjectId(): Subject{
+    public function getSubjectId(){
         return $this->subject_id;
     }
 
-    public function setSubjectId(Subject $subject_id): self{
+    public function setSubjectId(int $subject_id){
         $this->subject_id = $subject_id;
         return $this;
     }
@@ -55,11 +54,11 @@ class Exams {
         return $this;
     }
 
-    public function getDegree_id(): Degrees{
+    public function getDegree_id(){
         return $this->degree_id;
     }
 
-    public function setDegree_id(Degrees $degree_id): self{
+    public function setDegree_id(int $degree_id){
         $this->degree_id = $degree_id;
         return $this;
     }
