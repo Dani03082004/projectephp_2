@@ -19,7 +19,7 @@ class Student extends User {
         echo parent::MYSCHOOL;
     }
 
-    function __construct(int $user_id, DateTime $enrollment_year, string $dni,string $uuid, string $first_name, string $last_name, string $email, string $password,string $user_type) {
+    function __construct(DateTime $enrollment_year, string $dni,string $uuid, string $first_name, string $last_name, string $email, string $password,string $user_type) {
         parent::__construct($uuid,$first_name,$last_name,$email,$password,$user_type);
         $this->user_id = $user_id;
         $this->enrollment_year = $enrollment_year;

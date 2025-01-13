@@ -19,10 +19,6 @@
         <section class="mt-8 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Añadir un nuevo Estudiante</h3>
             <form method="POST" action="/add-student" class="space-y-4">
-                <div>
-                    <label for="uuid" class="block text-gray-700 font-medium">UUID</label>
-                    <input type="text" id="uuid" name="uuid" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
-                </div>
 
                 <div>
                     <label for="first_name" class="block text-gray-700 font-medium">Nombre</label>
@@ -50,13 +46,17 @@
                 </div>
 
                 <div>
-                    <label for="user_id" class="block text-gray-700 font-medium">ID de Usuario</label>
-                    <input type="text" id="user_id" name="user_id" class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
+                    <label for="enrollment_year" class="block text-gray-700 font-medium">Año de Inscripción</label>
+                    <input type="date" id="enrollment_year" name="enrollment_year" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                 </div>
 
                 <div>
-                    <label for="enrollment_year" class="block text-gray-700 font-medium">Año de Inscripción</label>
-                    <input type="date" id="enrollment_year" name="enrollment_year" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                    <label for="courses" class="block text-gray-700 font-medium">Añadir Alumnos a Cursos</label>
+                    <select id="courses" name="courses" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                        <?php foreach ($courses as $course): ?>
+                            <option value="<?= $course['id'] ?>"><?= $course['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <div>
@@ -65,6 +65,33 @@
                     </button>
                 </div>
             </form>
+        </section>
+
+        <!-- Listado de alumnos -->
+        <section class="mt-12 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl font-bold text-gray-700 mb-4">Listado de Alumnos</h3>
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Apellido</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($student)): ?>
+                        <?php foreach ($student as $third): ?>
+                            <tr class="hover:bg-gray-100">
+                                <td class="border-b border-gray-200 p-3"><?= $third['id'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['first_name'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['last_name'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['courses_name'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
         </section>
     </main>
 

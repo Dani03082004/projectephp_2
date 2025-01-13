@@ -20,8 +20,8 @@
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Añadir un nuevo Departamento</h3>
             <form method="POST" action="/add-department" class="space-y-4">
                 <div>
-                    <label for="first_name" class="block text-gray-700 font-medium">Nombre</label>
-                    <input type="text" id="first_name" name="first_name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                    <label for="name" class="block text-gray-700 font-medium">Nombre</label>
+                    <input type="text" id="name" name="name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                 </div>
                 <div>
                     <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition-all">
@@ -29,6 +29,29 @@
                     </button>
                 </div>
             </form>
+        </section>
+
+        <!-- Listado de departamentos -->
+        <section class="mt-12 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl font-bold text-gray-700 mb-4">Listado de Departamentos</h3>
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($department)): ?>
+                        <?php foreach ($department as $second): ?>
+                            <tr class="hover:bg-gray-100">
+                                <td class="border-b border-gray-200 p-3"><?= $second['id'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $second['name'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
         </section>
     </main>
 

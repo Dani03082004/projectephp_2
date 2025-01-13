@@ -41,7 +41,7 @@
                 </div>
 
                 <div>
-                    <label for="departamento" class="block text-gray-700 font-medium">Departamento</label>
+                    <label for="departamento" class="block text-gray-700 font-medium">Añadir Profesores a Departamento</label>
                     <select id="departamento" name="departamento" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                         <?php foreach ($departments as $department): ?>
                             <option value="<?= $department['id'] ?>"><?= $department['name'] ?></option>

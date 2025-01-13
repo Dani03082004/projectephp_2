@@ -12,7 +12,7 @@
             $this->db=$db;
         }
 
-        function all(){
+        function alldepartments(){
             $stmt=$this->db->prepare("SELECT * FROM departments");
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -25,14 +25,7 @@
             ]);
 
             // Obtener el ID con el LastInsertId
-            $lastInsertId = $this->db->lastInsertId();
-
-            // Recuperamos el ID
-            $stmt = $this->db->prepare("SELECT * FROM departments WHERE id = :id");
-            $stmt->execute([':id' => $lastInsertId]);
-
-            // Devolvemos el objeto 
-            return $stmt->fetchObject(Department::class);
+            return $this->db->lastInsertId();
         }
 
         function findById($id):?Department{

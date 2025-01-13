@@ -12,10 +12,10 @@
             $this->db=$db;
         }
 
-        function all(){
+        function allstudents(){
             $stmt=$this->db->prepare("SELECT * FROM students");
             $stmt->execute([]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         function save(Student $student){
@@ -26,12 +26,7 @@
             ]);
 
             // Obtener el ID con el LastInsertId
-            $lastInsertId = $this->db->lastInsertId();
-
-            // Recuperamos el ID
-            $stmt = $this->db->prepare("SELECT * FROM students WHERE id = :id");
-            $stmt->execute([':id' => $lastInsertId]);
-            return $stmt->fetchObject(Student::class);
+            return $this->db->lastInsertId();
         }
         
         function findById($id):?Student{

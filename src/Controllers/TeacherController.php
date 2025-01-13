@@ -27,7 +27,7 @@ class TeacherController {
         $teachers = $this->TeacherService->talktorepo();
         $db = DatabaseConnection::getConnection();
         $DepartmentRepo = new DepartmentRepository($db);
-        $departments = $DepartmentRepo->all();
+        $departments = $DepartmentRepo->alldepartments();
         echo view('teacher', ['teacher' => $teachers, 'departments' => $departments]);
     }
 
