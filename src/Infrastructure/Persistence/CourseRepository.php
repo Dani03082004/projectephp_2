@@ -8,14 +8,15 @@
     class CourseRepository implements ICourseRepository{
         private \PDO $db;
 
-        function __construct(\PDO $db){
+        function __construct($db){
             $this->db=$db;
         }
 
-        function all(){
-            $stmt=$this->db->prepare("SELECT * FROM courses");
+        function allcourse(){
+            $stmt=$this->db->prepare("SELECT courses.*, degrees.name as degree_name FROM courses 
+            JOIN degrees ON courses.degree_id = degrees.id");
             $stmt->execute([]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         function save(Course $course){
@@ -26,12 +27,7 @@
             ]);
 
             // Obtener el ID con el LastInsertId
-            $lastInsertId = $this->db->lastInsertId();
-
-            // Recuperamos el ID
-            $stmt = $this->db->prepare("SELECT * FROM courses WHERE id = :id");
-            $stmt->execute([':id' => $lastInsertId]);
-            return $stmt->fetchObject(Course::class);
+            return $this->db->lastInsertId();
         }
         
         function findById($id):?Course{

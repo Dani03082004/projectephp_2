@@ -25,12 +25,22 @@
                 </div>
 
                 <div>
+                    <label for="curso" class="block text-gray-700 font-medium">Añadir Curso a Grado (Asignatura)</label>
+                    <select id="curso" name="curso" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                        <?php foreach ($degrees as $degree): ?>
+                            <option value="<?= $degree['id'] ?>"><?= $degree['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div>
                     <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition-all">
                         Añadir Curso
                     </button>
                 </div>
             </form>
         </section>
+        
           <!-- Listado de Cursos -->
           <section class="mt-12 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Listado de Cursos Formativos</h3>
@@ -39,6 +49,7 @@
                     <tr>
                         <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Asignatura Asignada</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +58,7 @@
                             <tr class="hover:bg-gray-100">
                                 <td class="border-b border-gray-200 p-3"><?= $fifth['id'] ?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $fifth['name'] ?></td>
-                            </tr>
+                                <td class="border-b border-gray-200 p-3"><?= $fifth['degree_name'] ?></td>                            </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>

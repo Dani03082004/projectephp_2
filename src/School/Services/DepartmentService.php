@@ -20,7 +20,7 @@ class DepartmentService{
         $data = $_POST;
 
         if(empty($data['name'])){
-            throw new \InvalidArgumentException("Fallo a la hora de añadir un departamento");
+            throw new \InvalidArgumentException("Error al añadir un departamento");
         }
     }
 

@@ -36,12 +36,12 @@
             ->addRoute('GET','/departments',[new DepartmentController($services),'index'])
             ->addRoute('POST','/add-department',[new DepartmentController($services),'addepartment'])
             ->addRoute('GET','/degrees',[new DegreeController($services),'index'])
-            ->addRoute('GET','/students',[new StudentController($services),'index'])
-            ->addRoute('POST','/add-student',[new StudentController($services),'addstudent'])
+            ->addRoute('POST','/add-degree',[new DegreeController($services),'addegree'])
             ->addRoute('GET','/courses',[new CourseController(),'index'])
-            ;
+            ->addRoute('POST','/add-course',[new CourseController(),'addcourse'])
+            ->addRoute('GET','/students',[new StudentController($services),'index'])
+            ->addRoute('POST','/add-student',[new StudentController($services),'addstudent']);            ;
 
 
             /*->addRoute('POST','/add-student',[new StudentController(),'addstudent'])
-            ->addRoute('POST','/add-course',[new CourseController(),'addcourse'])
             ->addRoute('POST','/add-teacher',[new TeacherController(),'addteacher'])*/
