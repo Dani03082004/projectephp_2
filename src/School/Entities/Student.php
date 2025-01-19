@@ -19,9 +19,10 @@ class Student extends User {
         echo parent::MYSCHOOL;
     }
 
-    function __construct(DateTime $enrollment_year, string $dni,string $uuid, string $first_name, string $last_name, string $email, string $password,string $user_type) {
+    function __construct(string $uuid, string $first_name, string $last_name, string $email, string $password,string $user_type,string $dni,DateTime $enrollment_year,int $user_id) {
         parent::__construct($uuid,$first_name,$last_name,$email,$password,$user_type);
         $this->user_id = $user_id;
+        $this->dni = $dni;
         $this->enrollment_year = $enrollment_year;
         $this->updateTimestamps();
     }
@@ -44,7 +45,7 @@ class Student extends User {
         return $this;
     }
 
-    public function getEnrollment_year(){
+    public function getEnrollment_year(): DateTime{
         return $this->enrollment_year;
     }
 

@@ -31,17 +31,13 @@
 
     $router=new Router();
     $router->addRoute('GET','/',[new HomeController(),'index'])
-            ->addRoute('GET','/teachers',[new TeacherController($services),'index'])
-            ->addRoute('POST','/add-teacher',[new TeacherController($services),'addteacher'])
-            ->addRoute('GET','/departments',[new DepartmentController($services),'index'])
-            ->addRoute('POST','/add-department',[new DepartmentController($services),'addepartment'])
-            ->addRoute('GET','/degrees',[new DegreeController($services),'index'])
-            ->addRoute('POST','/add-degree',[new DegreeController($services),'addegree'])
+            ->addRoute('GET','/teachers',[new TeacherController(),'index'])
+            ->addRoute('POST','/add-teacher',[new TeacherController(),'addteacher'])
+            ->addRoute('GET','/departments',[new DepartmentController(),'index'])
+            ->addRoute('POST','/add-department',[new DepartmentController(),'addepartment'])
+            ->addRoute('GET','/degrees',[new DegreeController(),'index'])
+            ->addRoute('POST','/add-degree',[new DegreeController(),'addegree'])
             ->addRoute('GET','/courses',[new CourseController(),'index'])
             ->addRoute('POST','/add-course',[new CourseController(),'addcourse'])
-            ->addRoute('GET','/students',[new StudentController($services),'index'])
-            ->addRoute('POST','/add-student',[new StudentController($services),'addstudent']);            ;
-
-
-            /*->addRoute('POST','/add-student',[new StudentController(),'addstudent'])
-            ->addRoute('POST','/add-teacher',[new TeacherController(),'addteacher'])*/
+            ->addRoute('GET','/students',[new StudentController(),'index'])
+            ->addRoute('POST','/add-student',[new StudentController(),'addstudent']);

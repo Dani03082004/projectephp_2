@@ -51,10 +51,19 @@
                 </div>
 
                 <div>
-                    <label for="courses" class="block text-gray-700 font-medium">Añadir Alumnos a Cursos</label>
+                    <label for="courses" class="block text-gray-700 font-medium">Añadir Estudiante a Cursos</label>
                     <select id="courses" name="courses" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                         <?php foreach ($courses as $course): ?>
                             <option value="<?= $course['id'] ?>"><?= $course['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="degree" class="block text-gray-700 font-medium">Añadir Estudiante a Grado (Asignatura)</label>
+                    <select id="degree" name="degree" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
+                        <?php foreach ($degrees as $degree): ?>
+                            <option value="<?= $degree['id'] ?>"><?= $degree['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -76,17 +85,19 @@
                         <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Apellido</th>
-                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso Asignado</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Asignatura Asignada</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($student)): ?>
                         <?php foreach ($student as $third): ?>
                             <tr class="hover:bg-gray-100">
-                                <td class="border-b border-gray-200 p-3"><?= $third['id'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['student_id'] ?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $third['first_name'] ?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $third['last_name'] ?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $third['courses_name'] ?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['degree_name'] ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

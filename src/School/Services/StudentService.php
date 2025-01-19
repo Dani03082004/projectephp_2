@@ -5,6 +5,7 @@ use App\School\Entities\Student;
 use App\Infrastructure\Persistence\StudentRepository;
 use App\School\Entities\User;  
 use App\Infrastructure\Persistence\UserRepository;  
+use DateTime;
 
 class StudentService{
 
@@ -21,8 +22,7 @@ class StudentService{
     public function validateStudent(){
         $data = $_POST;
 
-        if (empty($data['enrollment_year']) ||empty($data['dni']) || empty($data['first_name']) || empty($data['last_name']) ||
-            empty($data['email']) || empty($data['password']) || empty($data['courses'])) {
+        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['dni']) || empty($data['enrollment_year']) || empty($data['courses']) || empty($data['degree'])) {
                 throw new \InvalidArgumentException("Para añadir un nuevo estudiante, usted tiene que completar todos los campos.");
         }
 
@@ -50,16 +50,21 @@ class StudentService{
         $userepository = new UserRepository($db);
         $userid = $userepository->save($user);
 
+        // Enrollment Year a Fecha
+        $enrollment_year = new \DateTime($data['enrollment_year']); 
+
         $student = new Student(
-            $data['enrollment_year'],
-            $data['dni'],
             $uuid,
             $data['first_name'],
             $data['last_name'],
             $data['email'],
             $data['password'],
             'student',
-            $data['courses']
+            $data['dni'],
+            $enrollment_year,
+            $userid,
+            $data['courses'],
+            $data['degree']
         );
 
         // Guardar el Estudiante en la BD
