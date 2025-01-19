@@ -36,7 +36,6 @@ class StudentController {
         $db = DatabaseConnection::getConnection();
 
         try {
-            // Utilizo el servicio para agregar estudiante
             $this->StudentService->addStudent($data, $db);
             header("Location: /"); 
             exit;

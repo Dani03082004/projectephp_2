@@ -46,7 +46,6 @@ class StudentService{
             'student'
         );
 
-        // Guardamos el User en la BD
         $userepository = new UserRepository($db);
         $userid = $userepository->save($user);
 
@@ -67,7 +66,6 @@ class StudentService{
             $data['degree']
         );
 
-        // Guardar el Estudiante en la BD
         $studentRepo = new StudentRepository($db);
         $studentRepo->save($student);
     }

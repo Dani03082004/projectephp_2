@@ -9,13 +9,11 @@ class Exams {
     private int $subject_id;
     private ?DateTime $exam_date = null;
     private string $description;
-    private int $degree_id;
 
-    function __construct(int $subject_id, ?DateTime $exam_date = null, string $description, int $degree_id) {
+    function __construct(int $subject_id, ?DateTime $exam_date = null, string $description) {
         $this->subject_id = $subject_id;
         $this->exam_date = $exam_date;
         $this->description = $description;
-        $this->degree_id = $degree_id;
     }
 
     public function getId() {
@@ -45,21 +43,13 @@ class Exams {
         return $this;
     }
 
-    public function getExamDate() {
+    public function getExamDate() : DateTime{
         return $this->exam_date;
     }
 
-    public function setExamDate(?DateTime $exam_date){
+    public function setExamDate($exam_date){
         $this->exam_date = $exam_date;
         return $this;
     }
 
-    public function getDegree_id(){
-        return $this->degree_id;
-    }
-
-    public function setDegree_id(int $degree_id){
-        $this->degree_id = $degree_id;
-        return $this;
-    }
 }

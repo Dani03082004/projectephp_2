@@ -8,36 +8,30 @@
     class SubjectRepository implements ISubjectRepository{
         private \PDO $db;
 
-        function __construct(\PDO $db){
-            $this->db=$db;
+        function __construct($db){
+            $this->db = $db;
         }
 
-        function all(){
-            $stmt=$this->db->prepare("SELECT * FROM subjects");
+        function allsubjects(){
+            $stmt = $this->db->prepare("SELECT subjects.*, courses.name as courses_name FROM subjects
+                                        JOIN courses ON subjects.course_id = courses.id");
             $stmt->execute([]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
         }
 
         function save(Subject $subject){
-            $stmt=$this->db->prepare("INSERT INTO subjects(name,course_id) VALUES(:name,:course_id)");
+            $stmt = $this->db->prepare("INSERT INTO subjects(name, course_id) VALUES(:name, :course_id)");
             $stmt->execute([
-                ':name'=>$subject->getName(),
-                ':course_id'=>$subject->getCourse_id(),
+                ':name' => $subject->getName(),
+                ':course_id' => $subject->getCourse_id(),
             ]);
-
-            // Obtener el ID con el LastInsertId
-            $lastInsertId = $this->db->lastInsertId();
-
-            // Recuperamos el ID
-            $stmt = $this->db->prepare("SELECT * FROM subjects WHERE id = :id");
-            $stmt->execute([':id' => $lastInsertId]);
-            return $stmt->fetchObject(Subject::class);
+            return $this->db->lastInsertId();
         }
         
-        function findById($id):?Subject{
-            $stmt=$this->db->prepare("SELECT * FROM subjects WHERE id=:id");
-            $stmt->execute([':id'=>$id]);
+        function findById($id): ?Subject{
+            $stmt = $this->db->prepare("SELECT * FROM subjects WHERE id = :id");
+            $stmt->execute([':id' => $id]);
             $result = $stmt->fetchObject(Subject::class);
-            return $result ?: null;
+            return $result ?: null; 
         }
     }

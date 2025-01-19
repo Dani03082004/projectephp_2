@@ -6,22 +6,36 @@
     use App\Infrastructure\Persistence\StudentRepository;
     use App\Infrastructure\Persistence\EnrollmentRepository;
 
-    class EnrollmentService{
-        private StudentRepository $studentRepository;
+    class EnrollmentService {
+
         private EnrollmentRepository $enrollmentRepository;
-
-        function __construct(StudentRepository $studentRepo, EnrollmentRepository $enrollmentRepo)
-        {
-            $this->studentRepository=$studentRepo;
-            $this->enrollmentRepository=$enrollmentRepo;
+    
+        public function __construct(EnrollmentRepository $enrollmentRepository) {
+            $this->enrollmentRepository = $enrollmentRepository;
         }
-
-        function enrollStudentInCourse(Student $student,Course $course){
-            $student=$this->studentRepository->findByDni($student->getDni());
-            if(!$student){
-                throw new \Exception("Student not found");
+    
+        public function talktoEnrollment() {
+            return $this->enrollmentRepository->allenrollment();
+        }
+    
+        public function validateEnrollment(array $data) {
+            if (empty($data['enrollment_date'])|| empty($data['student_name']) || empty($data['subject_name'])) {
+                throw new \InvalidArgumentException("Para añadir una matrícula, todos los campos deben estar completos.");
             }
-            $enrollment=new Enrollment(null,$student,$course);
-            $this->enrollmentRepository->save($enrollment);
         }
+    
+        public function addenrollment(array $data, $db) {
+            $this->validateEnrollment($data);
+    
+            $enrollment_date = new \DateTime($data['enrollment_date']);
+            $enrollment = new Enrollment(
+                $enrollment_date,
+                $data['student_name'],
+                $data['subject_name']
+            );
+    
+            $enrollmentRepo = new EnrollmentRepository($db);
+            $enrollmentId = $enrollmentRepo->save($enrollment);
+        }
+    
     }

@@ -85,8 +85,8 @@
                         <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Apellido</th>
-                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso Asignado</th>
-                        <th class="border-b-2 border-gray-200 p-3 text-left">Asignatura Asignada</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Grado Académico</th>
                     </tr>
                 </thead>
                 <tbody>

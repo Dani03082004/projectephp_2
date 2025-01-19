@@ -11,7 +11,7 @@
 
         function __construct(string $name, int $course_id){
             $this->name = $name;
-            $this->course = $course;
+            $this->course_id = $course_id;
         }
 
         public function getName(){

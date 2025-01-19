@@ -9,32 +9,36 @@
     class EnrollmentRepository implements IEnrollmentRepository{
         private \PDO $db;
 
-        function __construct(\PDO $db){
+        function __construct($db){
             $this->db=$db;
         }
 
-        function all(){
-            $stmt=$this->db->prepare("SELECT * FROM enrollments");
-            $stmt->execute([]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+        function allenrollment() {
+            try {
+                $stmt = $this->db->prepare("
+                    SELECT enrollments.id, enrollments.enrollment_date, users.name AS student_name, subjects.name AS subject_name
+                    FROM enrollments
+                    JOIN students ON enrollments.student_id = students.id
+                    LEFT JOIN users ON students.user_id = users.id
+                    JOIN subjects ON enrollments.subject_id = subjects.id
+                ");
+                $stmt->execute([]);
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            } catch (\PDOException $e) {
+                echo "Error en la consulta: " . $e->getMessage();
+            }
         }
-
-        // Hay que ir metiendo cada Id de cada cosa con el LastInsertId
+        
         function save(Enrollment $enrollment){
-            $stmt=$this->db->prepare("INSERT INTO enrollments(student_id,subject_id,enrollment_date,course_id) VALUES(:student_id,:subject_id,:enrollment_date,:course_id)");
+            $stmt=$this->db->prepare("INSERT INTO enrollments(student_id,subject_id,enrollment_date) VALUES(:student_id,:subject_id,:enrollment_date)");
             $stmt->execute([
                 ':student_id'=>$enrollment->getStudent_id(),
                 ':subject_id'=>$enrollment->getSubject_id(),
                 ':enrollment_date'=>$enrollment->getEnrollment_Date(),
-                ':course_id'=>$enrollment->getCourse_id()
             ]);
-            // Obtener el ID con el LastInsertId
-            $lastInsertId = $this->db->lastInsertId();
 
-            // Recuperamos el ID
-            $stmt = $this->db->prepare("SELECT * FROM enrollments WHERE id = :id");
-            $stmt->execute([':id' => $lastInsertId]);
-            return $stmt->fetchObject(Enrollment::class);
+            // Obtener el ID con el LastInsertId
+            return $this->db->lastInsertId();
         }
         
         function findById($id):?Enrollment{
@@ -42,8 +46,6 @@
             $stmt->execute([':id' => $id]);
         
             $result = $stmt->fetchObject(Enrollment::class);
-        
-            // Si no se encuentra, que retorne null
             return $result ?: null;
         }
     }

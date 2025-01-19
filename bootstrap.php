@@ -10,6 +10,9 @@
     use App\Controllers\DepartmentController;
     use App\Controllers\CourseController;
     use App\Controllers\DegreeController;
+    use App\Controllers\SubjectController;
+    use App\Controllers\ExamsController;
+    use App\Controllers\EnrollmentController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;
     use App\School\Services\EnrollmentService;
@@ -40,4 +43,10 @@
             ->addRoute('GET','/courses',[new CourseController(),'index'])
             ->addRoute('POST','/add-course',[new CourseController(),'addcourse'])
             ->addRoute('GET','/students',[new StudentController(),'index'])
-            ->addRoute('POST','/add-student',[new StudentController(),'addstudent']);
+            ->addRoute('POST','/add-student',[new StudentController(),'addstudent'])
+            ->addRoute('GET','/subjects',[new SubjectController(),'index'])
+            ->addRoute('POST','/add-subject',[new SubjectController(),'addsubject'])
+            ->addRoute('GET','/exams',[new ExamsController(),'index'])
+            ->addRoute('POST','/add-exam',[new ExamsController(),'addexam'])
+            ->addRoute('GET','/enrollments',[new EnrollmentController(),'index'])
+            ->addRoute('POST','/add-enrollment',[new EnrollmentController(),'addenrollment']);
