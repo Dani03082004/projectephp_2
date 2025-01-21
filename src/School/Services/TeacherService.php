@@ -34,7 +34,7 @@ class TeacherService{
         }
     }
 
-    public function addTeacher(array $data, $db){
+    public function addteacher(array $data, $db){
 
         // Validaciones
         $this->validateTeacher($data);

@@ -13,6 +13,10 @@ class TeacherRepository implements ITeacherRepository{
     }
 
     function allteachers(){
+        $stmt = $this->db->prepare("SELECT teachers.id, users.first_name, users.last_name, users.email, teachers.department_id, departments.name AS department_name
+                                    FROM teachers
+                                    LEFT JOIN users ON teachers.user_id = users.id
+                                    LEFT JOIN departments ON teachers.department_id = departments.id");
         $stmt = $this->db->prepare("SELECT teachers.id, users.first_name, 
         users.last_name, users.email, 
         teachers.department_id, departments.name AS department_name
