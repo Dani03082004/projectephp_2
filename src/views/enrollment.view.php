@@ -1,4 +1,4 @@
-<?php include 'partials/header.view.php'; ?>
+<?php include 'partials/header.view.php';?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,23 +20,23 @@
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Añadir un nuevo Matriculas</h3>
             <form method="POST" action="/add-enrollment" class="space-y-4">
                 <div>
-                    <label for="enrollment_date" class="block text-gray-700 font-medium">Fecha de Examen</label>
+                    <label for="enrollment_date" class="block text-gray-700 font-medium">Fecha de Matricula</label>
                     <input type="date" id="enrollment_date" name="enrollment_date" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
                 </div>
 
-                <div>
+            <div>
                     <label for="student_name" class="block text-gray-700 font-medium">Añadir Matricula a Estudiante</label>
-                    <select id="student_name" name="student_name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
-                        <?php foreach ($student as $stu): ?>
-                            <option value="<?= $stu['id'] ?>"><?= $stu['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                    <select id="student_name" name="student_name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
+                <?php foreach ($students as $stu): ?>
+                    <option value="<?= $stu['student_id'] ?>"><?= $stu['first_name'] . ' ' . $stu['last_name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
                 <div>
                     <label for="subject_name" class="block text-gray-700 font-medium">Añadir Asignatura a Matricula</label>
-                    <select id="subject_name" name="subject_name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
-                        <?php foreach ($subject as $sub): ?>
+                    <select id="subject_name" name="subject_name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg">
+                        <?php foreach ($subjects as $sub): ?>
                             <option value="<?= $sub['id'] ?>"><?= $sub['name'] ?></option>
                         <?php endforeach; ?>
                     </select>

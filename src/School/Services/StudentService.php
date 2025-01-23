@@ -22,7 +22,7 @@ class StudentService{
     public function validateStudent(){
         $data = $_POST;
 
-        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['dni']) || empty($data['enrollment_year']) || empty($data['courses']) || empty($data['degree'])) {
+        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['dni']) || empty($data['enrollment_year']) || empty($data['course']) || empty($data['degree'])) {
                 throw new \InvalidArgumentException("Para añadir un nuevo estudiante, usted tiene que completar todos los campos.");
         }
 
@@ -62,7 +62,7 @@ class StudentService{
             $data['dni'],
             $enrollment_year,
             $userid,
-            $data['courses'],
+            $data['course'],
             $data['degree']
         );
 

@@ -2,7 +2,6 @@
 
     namespace App\Infrastructure\Persistence;
 
-
     use App\School\Entities\Enrollment;
     use App\School\Repositories\IEnrollmentRepository;
 
@@ -15,26 +14,28 @@
 
         function allenrollment() {
             try {
-                $stmt = $this->db->prepare("
-                    SELECT enrollments.id, enrollments.enrollment_date, users.name AS student_name, subjects.name AS subject_name
+                $stmt = $this->db->prepare("SELECT enrollments.id, enrollments.enrollment_date, 
+                        CONCAT(users.first_name, ' ', users.last_name) AS student_name, 
+                        subjects.name AS subject_name
                     FROM enrollments
                     JOIN students ON enrollments.student_id = students.id
                     LEFT JOIN users ON students.user_id = users.id
                     JOIN subjects ON enrollments.subject_id = subjects.id
                 ");
-                $stmt->execute([]);
+                $stmt->execute();
                 return $stmt->fetchAll(\PDO::FETCH_ASSOC);
             } catch (\PDOException $e) {
                 echo "Error en la consulta: " . $e->getMessage();
             }
         }
         
+        
         function save(Enrollment $enrollment){
             $stmt=$this->db->prepare("INSERT INTO enrollments(student_id,subject_id,enrollment_date) VALUES(:student_id,:subject_id,:enrollment_date)");
             $stmt->execute([
                 ':student_id'=>$enrollment->getStudent_id(),
                 ':subject_id'=>$enrollment->getSubject_id(),
-                ':enrollment_date'=>$enrollment->getEnrollment_Date(),
+                ':enrollment_date'=>$enrollment->getEnrollment_Date()->format('Y-m-d'),
             ]);
 
             // Obtener el ID con el LastInsertId

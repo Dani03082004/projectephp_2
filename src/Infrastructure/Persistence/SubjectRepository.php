@@ -12,7 +12,7 @@
             $this->db = $db;
         }
 
-        function allsubjects(){
+        function allSubjects(){
             $stmt = $this->db->prepare("SELECT subjects.*, courses.name as courses_name FROM subjects
                                         JOIN courses ON subjects.course_id = courses.id");
             $stmt->execute([]);

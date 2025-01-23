@@ -25,7 +25,7 @@ class EnrollmentController {
         $students = $studentRepo->allStudents();
         $subjectRepo = new SubjectRepository($db);
         $subjects = $subjectRepo->allSubjects();
-        echo view('enrollment', ['enrollment' => $enrollments, 'students' => $students, 'subjects' => $subjects]);
+        echo view('enrollment', ['enrollment' => $enrollments,'students' => $students, 'subjects' => $subjects, 'users' => $users]);
     }
 
     public function addenrollment() {

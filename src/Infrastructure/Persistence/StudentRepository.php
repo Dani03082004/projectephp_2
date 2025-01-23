@@ -12,23 +12,23 @@
             $this->db=$db;
         }
 
-        function allstudents() {
+        function allStudents() {
             $stmt = $this->db->prepare("SELECT 
-            students.id AS student_id,
-            users.first_name,
-            users.last_name,
-            users.email,
-            users.password,
-            students.dni,
-            students.enrollment_year,
-            COALESCE(courses.name, 'No asignado') AS courses_name,       
-            COALESCE(degrees.name, 'No asignado') AS degree_name       
-        FROM students
-            LEFT JOIN users ON students.user_id = users.id
-            LEFT JOIN enrollments ON students.id = enrollments.student_id
-            LEFT JOIN subjects ON enrollments.subject_id = subjects.id
-            LEFT JOIN courses ON subjects.course_id = courses.id
-            LEFT JOIN degrees ON courses.degree_id = degrees.id");   
+                    students.id AS student_id,
+                    users.first_name,
+                    users.last_name,
+                    users.email,
+                    users.password,
+                    students.dni,
+                    students.enrollment_year,
+                    courses.name AS course_name,       
+                    degrees.name AS degree_name       
+            FROM students
+                    LEFT JOIN users ON students.user_id = users.id
+                    LEFT JOIN enrollments ON students.id = enrollments.student_id
+                    LEFT JOIN subjects ON enrollments.subject_id = subjects.id
+                    LEFT JOIN courses ON subjects.course_id = courses.id
+                    LEFT JOIN degrees ON courses.degree_id = degrees.id"); 
         $stmt->execute([]);
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }

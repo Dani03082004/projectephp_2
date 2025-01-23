@@ -2,6 +2,7 @@
 
     namespace App\School\Services;
     use App\School\Entities\Student;
+    use App\School\Entities\Enrollment;
     use App\School\Entities\Course;
     use App\Infrastructure\Persistence\StudentRepository;
     use App\Infrastructure\Persistence\EnrollmentRepository;
@@ -12,7 +13,7 @@
     
         public function __construct(EnrollmentRepository $enrollmentRepository) {
             $this->enrollmentRepository = $enrollmentRepository;
-        }
+        }                 
     
         public function talktoEnrollment() {
             return $this->enrollmentRepository->allenrollment();
@@ -29,9 +30,9 @@
     
             $enrollment_date = new \DateTime($data['enrollment_date']);
             $enrollment = new Enrollment(
-                $enrollment_date,
                 $data['student_name'],
-                $data['subject_name']
+                $data['subject_name'],
+                $enrollment_date,
             );
     
             $enrollmentRepo = new EnrollmentRepository($db);
