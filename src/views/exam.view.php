@@ -13,7 +13,7 @@
     <main class="my-12">
         <section class="text-center px-4 md:px-0">
             <h2 class="text-4xl font-extrabold text-gray-800">Gestión de Exámenes</h2>
-            <p class="mt-4 text-xl text-gray-600">Administra la información de los exámenes aquí</p>
+            <p class="mt-4 text-xl text-gray-600">Administra la información de los exámenes aquí y asigna un examen a una asignatura</p>
         </section>
 
         <section class="mt-8 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">

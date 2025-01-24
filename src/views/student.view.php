@@ -14,6 +14,8 @@
         <section class="text-center px-4 md:px-0">
             <h2 class="text-4xl font-extrabold text-gray-800">Gestión de Estudiantes</h2>
             <p class="mt-4 text-xl text-gray-600">Administra la información de los estudiantes aquí</p>
+            <p class="mt-4 text-xl text-gray-600">Primero crea un estudiante después en matrículas, haz que un estudiante se matricule</p>
+            <p class="mt-4 text-xl text-gray-600">Después en el listado de alumnos verás el resultado</p>
         </section>
 
         <section class="mt-8 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">

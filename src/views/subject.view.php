@@ -13,7 +13,7 @@
     <main class="my-12">
         <section class="text-center px-4 md:px-0">
             <h2 class="text-4xl font-extrabold text-gray-800">Gestión de Asignaturas</h2>
-            <p class="mt-4 text-xl text-gray-600">Administra la información de los asignaturas aquí</p>
+            <p class="mt-4 text-xl text-gray-600">Administra la información de los asignaturas aquí y asigna una asignatura a un curso</p>
         </section>
 
         <section class="mt-8 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
@@ -39,7 +39,6 @@
             </form>
         </section>
 
-        <!-- Listado de Asignaturas -->
         <section class="mt-12 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-2xl font-bold text-gray-700 mb-4">Listado de Asignaturas</h3>
             <table class="w-full border-collapse">

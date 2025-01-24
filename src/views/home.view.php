@@ -16,7 +16,7 @@
                 Bienvenido a la Gestión Escolar
             </h1>
             <p class="text-lg text-gray-700 mb-12">
-                Explora nuestras opciones para administrar profesores, estudiantes, departamentos y cursos con facilidad.
+                Explora nuestras opciones para administrar la gestión escolar con facilidad.
             </p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -28,7 +28,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Profesores</h3>
-                        <p class="text-gray-600 mt-2">Añade y gestiona la información de tus profesores.</p>
+                        <p class="text-gray-600 mt-2">Gestiona la información de los profesores y asigna a uno a un departamento.</p>
                         <span class="mt-4 text-blue-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -41,7 +41,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Estudiantes</h3>
-                        <p class="text-gray-600 mt-2">Añade y gestiona la información de tus alumnos.</p>
+                        <p class="text-gray-600 mt-2"> Administra la información de los alumnos y asigna a un curso y asignatura.</p>
                         <span class="mt-4 text-green-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -55,7 +55,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Departamentos</h3>
-                        <p class="text-gray-600 mt-2">Administra los departamentos de tu institución.</p>
+                        <p class="text-gray-600 mt-2">Administra los departamentos de la institución.</p>
                         <span class="mt-4 text-yellow-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -69,7 +69,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Cursos</h3>
-                        <p class="text-gray-600 mt-2">Gestiona los cursos disponibles para los estudiantes.</p>
+                        <p class="text-gray-600 mt-2">Gestiona los cursos disponibles y asocia a asignaturas.</p>
                         <span class="mt-4 text-red-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -85,7 +85,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Grado</h3>
-                        <p class="text-gray-600 mt-2">Gestiona los grados disponibles para los estudiantes.</p>
+                        <p class="text-gray-600 mt-2">Administra los grados disponibles para los estudiantes.</p>
                         <span class="mt-4 text-purple-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -99,7 +99,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Exámenes</h3>
-                        <p class="text-gray-600 mt-2">Gestiona los exámenes y sus detalles.</p>
+                        <p class="text-gray-600 mt-2">Gestiona los exámenes y asigna a asignaturas.</p>
                         <span class="mt-4 text-indigo-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -113,7 +113,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Asignaturas</h3>
-                        <p class="text-gray-600 mt-2">Gestiona las asignaturas ofrecidas por la institución.</p>
+                        <p class="text-gray-600 mt-2">Gestiona las asignaturas ofrecidas y asígnalas a los cursos.</p>
                         <span class="mt-4 text-teal-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
@@ -127,7 +127,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-800">Matrículas</h3>
-                        <p class="text-gray-600 mt-2">Gestiona las matrículas de tus estudiantes.</p>
+                        <p class="text-gray-600 mt-2">Gestiona las matrículas de los estudiantes y asigna a asignaturas.</p>
                         <span class="mt-4 text-pink-500 font-semibold group-hover:underline">Ver más</span>
                     </div>
                 </a>
