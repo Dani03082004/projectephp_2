@@ -1,4 +1,4 @@
-<?php include 'partials/header.view.php'; ?>
+<?php include 'partials/header.view.php';?>
 
 <!DOCTYPE html>
 <html lang="es">

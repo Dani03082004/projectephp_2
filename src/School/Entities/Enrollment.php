@@ -17,20 +17,20 @@ class Enrollment {
         return $this->id;
     }
     
-    public function getStudent_id(): int {
+    public function getStudent_id(){
         return $this->student_id;
     }
     
-    public function setStudent_id(int $student_id): self {
+    public function setStudent_id(int $student_id){
         $this->student_id = $student_id;
         return $this;
     }
     
-    public function getSubject_id(): int {
+    public function getSubject_id(){
         return $this->subject_id;
     }
     
-    public function setSubject_id(int $subject_id): self {
+    public function setSubject_id(int $subject_id){
         $this->subject_id = $subject_id;
         return $this;
     }

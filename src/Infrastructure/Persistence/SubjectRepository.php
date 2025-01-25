@@ -34,4 +34,5 @@
             $result = $stmt->fetchObject(Subject::class);
             return $result ?: null; 
         }
+        
     }

@@ -23,13 +23,13 @@
                     students.enrollment_year,
                     courses.name AS course_name,       
                     degrees.name AS degree_name       
-            FROM students
-                    LEFT JOIN users ON students.user_id = users.id
-                    LEFT JOIN enrollments ON students.id = enrollments.student_id
-                    LEFT JOIN subjects ON enrollments.subject_id = subjects.id
-                    LEFT JOIN courses ON subjects.course_id = courses.id
-                    LEFT JOIN degrees ON courses.degree_id = degrees.id"); 
-        $stmt->execute([]);
+                FROM students
+                LEFT JOIN users ON students.user_id = users.id
+                LEFT JOIN enrollments ON students.id = enrollments.student_id
+                LEFT JOIN subjects ON enrollments.subject_id = subjects.id
+                LEFT JOIN courses ON subjects.course_id = courses.id
+                LEFT JOIN degrees ON courses.degree_id = degrees.id");
+            $stmt->execute([]);
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
         

@@ -33,7 +33,6 @@ class StudentService{
 
     public function addStudent(array $data,$db){
 
-        // Validaciones Student
         $this->validateStudent($data);
 
         $uuid = uniqid('', true); 
@@ -49,7 +48,6 @@ class StudentService{
         $userepository = new UserRepository($db);
         $userid = $userepository->save($user);
 
-        // Enrollment Year a Fecha
         $enrollment_year = new \DateTime($data['enrollment_year']); 
 
         $student = new Student(
