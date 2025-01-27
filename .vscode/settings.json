@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "school",
+            "database": "${workspaceFolder:oop1}/src/Infrastructure/Database/database.php"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
