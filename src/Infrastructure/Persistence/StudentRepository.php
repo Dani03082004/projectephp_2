@@ -21,8 +21,7 @@
                     users.password,
                     students.dni,
                     students.enrollment_year,
-                    courses.name AS course_name,       
-                    degrees.name AS degree_name       
+                    subjects.name AS subject_name      
                 FROM students
                 LEFT JOIN users ON students.user_id = users.id
                 LEFT JOIN enrollments ON students.id = enrollments.student_id

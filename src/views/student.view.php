@@ -53,24 +53,6 @@
                 </div>
 
                 <div>
-                    <label for="course" class="block text-gray-700 font-medium">Añadir Estudiante a Cursos</label>
-                    <select id="course" name="course" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
-                        <?php foreach ($courses as $course): ?>
-                            <option value="<?= $course['id'] ?>"><?= $course['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="degree" class="block text-gray-700 font-medium">Añadir Estudiante a Grado</label>
-                    <select id="degree" name="degree" class="w-full mt-1 p-2 border border-gray-300 rounded-lg" required>
-                        <?php foreach ($degrees as $degree): ?>
-                            <option value="<?= $degree['id'] ?>"><?= $degree['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <div>
                     <button type="submit" class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-green-700 transition-all">
                         Añadir Estudiante
                     </button>
@@ -86,8 +68,7 @@
                         <th class="border-b-2 border-gray-200 p-3 text-left">ID</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Nombre</th>
                         <th class="border-b-2 border-gray-200 p-3 text-left">Apellido</th>
-                        <th class="border-b-2 border-gray-200 p-3 text-left">Curso</th>
-                        <th class="border-b-2 border-gray-200 p-3 text-left">Grado Académico</th>
+                        <th class="border-b-2 border-gray-200 p-3 text-left">Asignatura Matriculada</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,8 +78,7 @@
                                 <td class="border-b border-gray-200 p-3"><?= $third['student_id']?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $third['first_name']?></td>
                                 <td class="border-b border-gray-200 p-3"><?= $third['last_name']?></td>
-                                <td class="border-b border-gray-200 p-3"><?= $third['course_name']?></td>
-                                <td class="border-b border-gray-200 p-3"><?= $third['degree_name']?></td>
+                                <td class="border-b border-gray-200 p-3"><?= $third['subject_name']?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

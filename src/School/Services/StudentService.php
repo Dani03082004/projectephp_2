@@ -4,14 +4,15 @@ namespace App\School\Services;
 use App\School\Entities\Student;
 use App\Infrastructure\Persistence\StudentRepository;
 use App\School\Entities\User;  
+use App\School\Repositories\IStudentRepository;  
 use App\Infrastructure\Persistence\UserRepository;  
 use DateTime;
 
 class StudentService{
 
-    private StudentRepository $StudentRepository;
+    private IStudentRepository $StudentRepository;
 
-    public function __construct(StudentRepository $StudentRepository){
+    public function __construct(IStudentRepository $StudentRepository){
         $this->StudentRepository=$StudentRepository;
     }
 
@@ -22,7 +23,7 @@ class StudentService{
     public function validateStudent(){
         $data = $_POST;
 
-        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['dni']) || empty($data['enrollment_year']) || empty($data['course']) || empty($data['degree'])) {
+        if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['dni']) || empty($data['enrollment_year'])) {
                 throw new \InvalidArgumentException("Para añadir un nuevo estudiante, usted tiene que completar todos los campos.");
         }
 
@@ -60,8 +61,6 @@ class StudentService{
             $data['dni'],
             $enrollment_year,
             $userid,
-            $data['course'],
-            $data['degree']
         );
 
         $studentRepo = new StudentRepository($db);

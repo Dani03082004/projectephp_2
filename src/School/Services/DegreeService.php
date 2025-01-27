@@ -3,12 +3,14 @@
 namespace App\School\Services;
 use App\School\Entities\Degrees;
 use App\Infrastructure\Persistence\DegreesRepository;
+use App\School\Repositories\IDegreesRepository;  
+
 
 class DegreeService{
 
-    private DegreesRepository $DegreeRepository;
+    private IDegreesRepository $DegreeRepository;
 
-    public function __construct(DegreesRepository $DegreeRepository){
+    public function __construct(IDegreesRepository $DegreeRepository){
         $this->DegreesRepository=$DegreeRepository;
     }
 

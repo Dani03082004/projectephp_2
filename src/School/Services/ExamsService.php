@@ -4,12 +4,14 @@ namespace App\School\Services;
 
 use App\School\Entities\Exams;
 use App\Infrastructure\Persistence\ExamsRepository;
+use App\School\Repositories\IExamsRepository;  
+
 
 class ExamsService {
 
-    private ExamsRepository $examsRepository;
+    private IExamsRepository $examsRepository;
 
-    public function __construct(ExamsRepository $examsRepository) {
+    public function __construct(IExamsRepository $examsRepository) {
         $this->examsRepository = $examsRepository;
     }
 

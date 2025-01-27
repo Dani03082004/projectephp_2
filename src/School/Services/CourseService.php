@@ -5,12 +5,14 @@ use App\School\Entities\Degrees;
 use App\Infrastructure\Persistence\DegreesRepository;
 use App\School\Entities\Course;  
 use App\Infrastructure\Persistence\CourseRepository; 
+use App\School\Repositories\ICourseRepository;  
+
 
 class CourseService{
 
-    private CourseRepository $CourseRepository;
+    private ICourseRepository $CourseRepository;
 
-    public function __construct(CourseRepository $CourseRepository){
+    public function __construct(ICourseRepository $CourseRepository){
         $this->CourseRepository=$CourseRepository;
     }
 

@@ -4,12 +4,14 @@ namespace App\School\Services;
 
 use App\School\Entities\Subject;
 use App\Infrastructure\Persistence\SubjectRepository;
+use App\School\Repositories\ISubjectRepository;  
+
 
 class SubjectService {
 
-    private SubjectRepository $subjectRepository;
+    private ISubjectRepository $subjectRepository;
 
-    public function __construct(SubjectRepository $subjectRepository) {
+    public function __construct(ISubjectRepository $subjectRepository) {
         $this->subjectRepository = $subjectRepository;
     }
 

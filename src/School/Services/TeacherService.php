@@ -5,14 +5,16 @@ use App\School\Entities\Teacher;
 use App\Infrastructure\Persistence\TeacherRepository;
 use App\School\Entities\User;  
 use App\Infrastructure\Persistence\UserRepository;  
+use App\School\Repositories\ITeacherRepository;  
+
 
 // Utilizar Servicio para comprobaciones y llamar vista (comunicarse con el Repo para poder traer ciertas cosas)
 
 class TeacherService{
 
-    private TeacherRepository $TeacherRepository;
+    private ITeacherRepository $TeacherRepository;
 
-    public function __construct(TeacherRepository $TeacherRepository){
+    public function __construct(ITeacherRepository $TeacherRepository){
         $this->TeacherRepository=$TeacherRepository;
     }
 

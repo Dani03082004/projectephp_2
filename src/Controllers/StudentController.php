@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 use App\School\Services\StudentService;
 use App\Infrastructure\Persistence\StudentRepository;
-use App\Infrastructure\Persistence\CourseRepository;
-use App\Infrastructure\Persistence\DegreesRepository;
+use App\Infrastructure\Persistence\SubjectRepository;
 use App\Infrastructure\Database\DatabaseConnection;
 
 class StudentController {
@@ -15,20 +14,17 @@ class StudentController {
     public function __construct() {
         $db = DatabaseConnection::getConnection();
         $StudentRepo = new StudentRepository($db);
-        $CourseRepo = new CourseRepository($db);
-        $DegreesRepo = new DegreesRepository($db);
-        $StudentService = new StudentService($StudentRepo, $CourseRepo, $DegreesRepo);
+        $SubjectRepo = new SubjectRepository($db);
+        $StudentService = new StudentService($StudentRepo, $SubjectRepo);
         $this->StudentService = $StudentService;
     }
 
     public function index() {
         $student = $this->StudentService->talktostudent();
         $db = DatabaseConnection::getConnection();
-        $CourseRepo = new CourseRepository($db);
-        $courses = $CourseRepo->allcourse();
-        $DegreesRepo = new DegreesRepository($db);
-        $degrees = $DegreesRepo->alldegrees();
-        echo view('student', ['student' => $student, 'courses' => $courses, 'degrees' => $degrees]);
+        $SubjectRepo = new SubjectRepository($db);
+        $subjects = $SubjectRepo->allSubjects();
+        echo view('student', ['student' => $student, 'subjects' => $subjects]);
     }
 
     public function addstudent() {

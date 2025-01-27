@@ -6,12 +6,14 @@
     use App\School\Entities\Course;
     use App\Infrastructure\Persistence\StudentRepository;
     use App\Infrastructure\Persistence\EnrollmentRepository;
+    use App\School\Repositories\IEnrollmentRepository;  
+
 
     class EnrollmentService {
 
-        private EnrollmentRepository $enrollmentRepository;
+        private IEnrollmentRepository $enrollmentRepository;
     
-        public function __construct(EnrollmentRepository $enrollmentRepository) {
+        public function __construct(IEnrollmentRepository $enrollmentRepository) {
             $this->enrollmentRepository = $enrollmentRepository;
         }                 
     
